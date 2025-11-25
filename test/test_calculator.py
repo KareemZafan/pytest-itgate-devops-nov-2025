@@ -1,16 +1,15 @@
 import pytest
 from src import calculator as calc
 
-test_data = [(8,3,5), (-1,1,-2), (-11,-20,9), (-11,0,-11), (0,0,0), (100,50,50), (2.5,1.5,1.0)]
+test_data_sub = [(8,3,5), (-1,1,-2), (-11,-20,9), (-11,0,-11), (0,0,0), (100,50,50), (2.5,1.5,1.0)]
+test_data_add = [(8,3,11), (-1,1,0), (-11,-20,-31), (-11,0,-11), (100,50,150), (2.5,1.5,4.0)]
 
 @pytest.mark.JANUARY
-def test_add():
-    assert calc.add(2,3) == 5
-    assert calc.add(-1,1) == 0
-    assert calc.add(-11,-20) == -31
-    assert calc.add(-11,0) == -11
+@pytest.mark.parametrize("input1,input2,result", test_data_add)
+def test_add(input1, input2, result):
+    assert calc.add(input1, input2) == result 
     
-@pytest.mark.parametrize("input1,input2,result", test_data)
+@pytest.mark.parametrize("input1,input2,result", test_data_sub)
 def test_subtract(input1, input2, result):
     assert calc.subtract(input1, input2) == result
 
