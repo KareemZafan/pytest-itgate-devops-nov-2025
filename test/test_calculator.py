@@ -24,7 +24,7 @@ def test_divide():
     assert calc.divide(6,3) == 2
     assert calc.divide(-6,2) == -3
     assert calc.divide(-20,-5) == 4
-    assert calc.divide(0,5) == 0
+    assert calc.divide(0,5) == -9
     assert calc.divide(5,0) is None 
 
 def printHello():
